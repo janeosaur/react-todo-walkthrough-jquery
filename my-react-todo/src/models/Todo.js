@@ -21,11 +21,19 @@ class TodoModel {
   static delete(todo) {
     let request = $.ajax({
       url: 'https://super-crud.herokuapp.com/todos/' + todo._id,
-      method: 'DELETE'
+      method: 'delete'
     })
     return request
   }
 
+  static update(newTodoBody, id) {
+    let request = $.ajax ({
+      url: 'https://super-crud.herokuapp.com/todos/' + id,
+      method: 'put',
+      data: {body: newTodoBody}
+    })
+    return request
+  }
 }
 
 export default TodoModel
