@@ -15,6 +15,7 @@ class TodosContainer extends Component {
   componentDidMount(){
     this.fetchData()
   }
+
   fetchData(){
     TodoModel.all().then( (res) => {
       this.setState ({
@@ -55,6 +56,7 @@ class TodosContainer extends Component {
         return item._id === id;
       })
       targetTodo.body = res.body
+      this.setState({targetTodo}) //live updates
     })
   }
 
